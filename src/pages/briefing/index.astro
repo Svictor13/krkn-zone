@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('briefing')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Base
+  title="The Kraken Briefing"
+  description="Threat intelligence, security strategy, and what the deep patterns say about where risk is actually moving."
+>
+  <div class="container--wide">
+    <div class="section-header">
+      <div class="section-header__label">The Kraken Briefing</div>
+      <h1 class="section-header__title">The Kraken Briefing</h1>
+      <p class="section-header__desc">Threat intelligence and security strategy from below the surface.</p>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="post-grid">
+        {posts.map(post => (
+          <PostCard
+            title={post.data.title}
+            date={post.data.date}
+            excerpt={post.data.excerpt}
+            image={post.data.image}
+            slug={post.slug}
+            section="briefing"
+            sectionLabel="The Kraken Briefing"
+          />
+        ))}
+      </div>
+    ) : (
+      <p style="padding: 2rem 0; color: rgba(13,13,13,0.5);">Posts coming soon.</p>
+    )}
+  </div>
+</Base>

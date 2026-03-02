@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('field-notes')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Base
+  title="Field Notes"
+  description="Observations from the field. What I've seen, done, and learned across 26 years at the intersection of technology and risk."
+>
+  <div class="container--wide">
+    <div class="section-header">
+      <div class="section-header__label">Field Notes</div>
+      <h1 class="section-header__title">Field Notes</h1>
+      <p class="section-header__desc">Observations from the field. What I've seen, done, and learned.</p>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="post-grid">
+        {posts.map(post => (
+          <PostCard
+            title={post.data.title}
+            date={post.data.date}
+            excerpt={post.data.excerpt}
+            image={post.data.image}
+            slug={post.slug}
+            section="field-notes"
+            sectionLabel="Field Notes"
+          />
+        ))}
+      </div>
+    ) : (
+      <p style="padding: 2rem 0; color: rgba(13,13,13,0.5);">Posts coming soon.</p>
+    )}
+  </div>
+</Base>

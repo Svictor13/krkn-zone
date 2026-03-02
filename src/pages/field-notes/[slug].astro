@@ -1,0 +1,27 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Post from '../../layouts/Post.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('field-notes');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Post
+  title={post.data.title}
+  date={post.data.date}
+  excerpt={post.data.excerpt}
+  image={post.data.image}
+  section="field-notes"
+  sectionLabel="Field Notes"
+  sectionPath="/field-notes"
+>
+  <Content />
+</Post>

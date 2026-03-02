@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('charts')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Base
+  title="The Navigator's Charts"
+  description="Strategic frameworks, risk models, and the navigational tools for moving through uncertain waters."
+>
+  <div class="container--wide">
+    <div class="section-header">
+      <div class="section-header__label">The Navigator's Charts</div>
+      <h1 class="section-header__title">The Navigator's Charts</h1>
+      <p class="section-header__desc">Strategic frameworks and navigational tools for uncertain waters.</p>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="post-grid">
+        {posts.map(post => (
+          <PostCard
+            title={post.data.title}
+            date={post.data.date}
+            excerpt={post.data.excerpt}
+            image={post.data.image}
+            slug={post.slug}
+            section="charts"
+            sectionLabel="The Navigator's Charts"
+          />
+        ))}
+      </div>
+    ) : (
+      <p style="padding: 2rem 0; color: rgba(13,13,13,0.5);">Posts coming soon.</p>
+    )}
+  </div>
+</Base>

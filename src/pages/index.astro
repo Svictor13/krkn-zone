@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const sectionMeta: Record<string, { label: string; path: string }> = {
+  'briefing': { label: 'The Kraken Briefing', path: '/briefing' },
+  'charts': { label: "The Navigator's Charts", path: '/charts' },
+  'field-notes': { label: 'Field Notes', path: '/field-notes' },
+};
+
+// Get all posts across sections, sorted by date
+const allBriefing = await getCollection('briefing');
+const allCharts = await getCollection('charts');
+const allFieldNotes = await getCollection('field-notes');
+
+const allPosts = [
+  ...allBriefing.map(p => ({ ...p, section: 'briefing' })),
+  ...allCharts.map(p => ({ ...p, section: 'charts' })),
+  ...allFieldNotes.map(p => ({ ...p, section: 'field-notes' })),
+].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+---
+
+<Base>
+  <div class="hero">
+    <p class="hero__tagline">"To protect ships, you must think like what sinks them."</p>
+    <p class="hero__sub">Cybersecurity strategy and field intelligence from 26 years at the intersection of technology, risk, and Latin America.</p>
+  </div>
+
+  <div class="container--wide">
+    {allPosts.length > 0 && (
+      <>
+        <div class="recent-header">
+          <h2>Recent Posts</h2>
+        </div>
+        <div class="post-grid">
+          {allPosts.map(post => (
+            <PostCard
+              title={post.data.title}
+              date={post.data.date}
+              excerpt={post.data.excerpt}
+              image={post.data.image}
+              slug={post.slug}
+              section={post.section}
+              sectionLabel={sectionMeta[post.section].label}
+            />
+          ))}
+        </div>
+      </>
+    )}
+
+    <div class="about-teaser">
+      <div class="about-teaser__label">About</div>
+      <p class="about-teaser__text">
+        26 years. 8 countries. Both sides of the water. Stefan Wieczorek on cybersecurity, risk quantification, and what happens when you think like a Kraken.
+      </p>
+      <a href="/about">Read more →</a>
+    </div>
+  </div>
+</Base>

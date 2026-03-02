@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'KRKN',
+  description = 'Cybersecurity strategy and field intelligence from Stefan Wieczorek — 26 years, 8 countries, both sides of the water.',
+  image,
+} = Astro.props;
+
+const siteUrl = 'https://krkn.zone';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const ogImage = image ? new URL(image, siteUrl) : null;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <title>{title === 'KRKN' ? 'KRKN' : `${title} — KRKN`}</title>
+  <meta name="description" content={description} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  {ogImage && <meta name="twitter:image" content={ogImage} />}
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/" class="site-nav__logo">KRKN</a>
+    <ul class="site-nav__links">
+      <li><a href="/briefing">The Kraken Briefing</a></li>
+      <li><a href="/charts">The Navigator's Charts</a></li>
+      <li><a href="/field-notes">Field Notes</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <p>✒️ <a href="https://www.linkedin.com/in/stefanwieczorek/" target="_blank" rel="noopener">Stefan Wieczorek</a> &nbsp;·&nbsp; KRKN &nbsp;·&nbsp; 26 years, 8 countries</p>
+  </footer>
+</body>
+</html>
