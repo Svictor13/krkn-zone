@@ -1,5 +1,5 @@
 /* === KRKN VISUAL SYSTEM === */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap');
 
 /* === PALETTE === */
 :root {
@@ -91,11 +91,11 @@ p:last-child {
 }
 
 .site-nav__logo {
-  font-family: 'Bebas Neue', var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 400;
+  font-family: 'Cinzel Decorative', var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
   color: var(--orange);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-decoration: none;
   flex-shrink: 0;
 }
