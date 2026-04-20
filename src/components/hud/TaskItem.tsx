@@ -12,26 +12,23 @@ export default function TaskItem({ task, onToggle, onEdit, onDelete }: TaskItemP
   const isDone = task.status === 'done';
 
   return (
-    <div className="task-item">
-      <button
-        className={`task-checkbox ${isDone ? 'checked' : ''}`}
-        onClick={() => onToggle(task.id)}
-        aria-label={isDone ? 'Mark as active' : 'Mark as done'}
+    <div className={`hud-task ${isDone ? 'hud-task--done' : ''}`}>
+      <input
+        type="checkbox"
+        className="hud-task__checkbox"
+        checked={isDone}
+        onChange={() => onToggle(task.id)}
       />
-      <div className="task-content" onClick={() => onEdit(task)}>
-        <span className={`task-title ${isDone ? 'task-done' : ''}`}>
-          {task.title}
-        </span>
-        <div className="task-meta">
-          {task.is_wig && <span className="badge badge-wig">WIG</span>}
-          {task.due_date && (
-            <span className="badge badge-due">{task.due_date}</span>
-          )}
-          <span className="badge badge-context">{task.context}</span>
+      <div className="hud-task__content" onClick={() => onEdit(task)} style={{ cursor: 'pointer' }}>
+        <span className="hud-task__text">{task.title}</span>
+        <div className="hud-task__meta">
+          {task.is_wig && <span className="hud-badge hud-badge--wig">WIG</span>}
+          {task.due_date && <span className="hud-badge hud-badge--active">{task.due_date}</span>}
+          <span className="hud-badge hud-badge--someday">{task.context}</span>
         </div>
       </div>
       <button
-        className="task-delete"
+        className="hud-task__delete"
         onClick={() => onDelete(task.id)}
         aria-label="Delete task"
       >

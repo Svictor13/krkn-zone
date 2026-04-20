@@ -40,13 +40,17 @@ export default function TaskForm({ task, onSave, onClose }: TaskFormProps) {
   };
 
   return (
-    <div className="task-form-backdrop" onClick={onClose}>
-      <div className="task-form" onClick={e => e.stopPropagation()}>
-        <h2 className="task-form-title">{task ? 'Edit Task' : 'New Task'}</h2>
+    <div className="hud-modal-overlay hud-modal-overlay--open" onClick={onClose}>
+      <div className="hud-modal" onClick={e => e.stopPropagation()}>
+        <div className="hud-modal__header">
+          <span className="hud-modal__title">{task ? 'Edit Task' : 'New Task'}</span>
+          <button className="hud-modal__close" onClick={onClose}>&times;</button>
+        </div>
         <form onSubmit={handleSubmit}>
-          <div className="form-field">
+          <div className="hud-form-group">
             <label>Title</label>
             <input
+              className="hud-input"
               type="text"
               value={title}
               onChange={e => setTitle(e.target.value)}
@@ -55,9 +59,10 @@ export default function TaskForm({ task, onSave, onClose }: TaskFormProps) {
             />
           </div>
 
-          <div className="form-field">
+          <div className="hud-form-group">
             <label>Notes</label>
             <textarea
+              className="hud-input hud-textarea"
               value={notes}
               onChange={e => setNotes(e.target.value)}
               placeholder="Optional notes..."
@@ -65,17 +70,21 @@ export default function TaskForm({ task, onSave, onClose }: TaskFormProps) {
             />
           </div>
 
-          <div className="form-field">
+          <div className="hud-form-group">
             <label>Context</label>
-            <select value={context} onChange={e => setContext(e.target.value as GTDContext)}>
+            <select
+              className="hud-input hud-select"
+              value={context}
+              onChange={e => setContext(e.target.value as GTDContext)}
+            >
               {CONTEXTS.map(({ key, label, icon }) => (
                 <option key={key} value={key}>{icon} {label}</option>
               ))}
             </select>
           </div>
 
-          <div className="form-field form-field-row">
-            <label>
+          <div className="hud-form-group">
+            <label className="hud-toggle">
               <input
                 type="checkbox"
                 checked={isWig}
@@ -86,9 +95,10 @@ export default function TaskForm({ task, onSave, onClose }: TaskFormProps) {
           </div>
 
           {isWig && (
-            <div className="form-field">
+            <div className="hud-form-group">
               <label>Priority (1-5)</label>
               <input
+                className="hud-input"
                 type="number"
                 min={1}
                 max={5}
@@ -98,18 +108,19 @@ export default function TaskForm({ task, onSave, onClose }: TaskFormProps) {
             </div>
           )}
 
-          <div className="form-field">
+          <div className="hud-form-group">
             <label>Due Date</label>
             <input
+              className="hud-input"
               type="date"
               value={dueDate}
               onChange={e => setDueDate(e.target.value)}
             />
           </div>
 
-          <div className="form-actions">
-            <button type="button" className="btn-cancel" onClick={onClose}>Cancel</button>
-            <button type="submit" className="btn-save">Save</button>
+          <div className="hud-form-actions">
+            <button type="button" className="hud-btn hud-btn--ghost" onClick={onClose}>Cancel</button>
+            <button type="submit" className="hud-btn hud-btn--primary">Save</button>
           </div>
         </form>
       </div>

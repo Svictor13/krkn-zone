@@ -5,14 +5,14 @@ interface ProgressBarProps {
   color?: string;
 }
 
-export default function ProgressBar({ value, color = 'cyan' }: ProgressBarProps) {
-  const clampedValue = Math.min(100, Math.max(0, value));
+export default function ProgressBar({ value, color }: ProgressBarProps) {
+  const clamped = Math.min(100, Math.max(0, value));
 
   return (
-    <div className="progress-bar">
+    <div className="hud-progress">
       <div
-        className="progress-bar-fill"
-        style={{ width: `${clampedValue}%`, backgroundColor: color }}
+        className={`hud-progress__fill ${color === 'amber' ? 'hud-progress--amber' : ''}`}
+        style={{ width: `${clamped}%` }}
       />
     </div>
   );

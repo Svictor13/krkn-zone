@@ -13,26 +13,32 @@ export default function WIGPanel({ tasks, onToggle }: WIGPanelProps) {
   const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
 
   return (
-    <div className="wig-panel">
-      <h2 className="wig-header">TODAY'S WIGs</h2>
+    <div className="hud-wig-panel">
+      <div className="hud-wig-panel__title">TODAY'S WIGs</div>
       {total === 0 ? (
-        <p className="wig-empty">No WIGs set for today</p>
+        <div className="hud-empty">No WIGs set for today</div>
       ) : (
         <>
-          <ul className="wig-list">
+          <ul className="hud-wig-panel__list">
             {tasks.map(task => (
-              <li key={task.id} className="wig-item">
-                <button
-                  className={`task-checkbox ${task.status === 'done' ? 'checked' : ''}`}
-                  onClick={() => onToggle(task.id)}
+              <li key={task.id} className="hud-task" style={{ padding: '8px 0' }}>
+                <input
+                  type="checkbox"
+                  className="hud-task__checkbox"
+                  checked={task.status === 'done'}
+                  onChange={() => onToggle(task.id)}
                 />
-                <span className={task.status === 'done' ? 'task-done' : ''}>
+                <span className={`hud-task__text ${task.status === 'done' ? 'hud-task--done' : ''}`}>
                   {task.title}
                 </span>
               </li>
             ))}
           </ul>
-          <ProgressBar value={progress} />
+          <div className="hud-progress__label">
+            <span>Progress</span>
+            <span className="hud-progress__value">{progress}%</span>
+          </div>
+          <ProgressBar value={progress} color="amber" />
         </>
       )}
     </div>

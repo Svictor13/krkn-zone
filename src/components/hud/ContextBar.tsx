@@ -9,16 +9,15 @@ interface ContextBarProps {
 
 export default function ContextBar({ selected, counts, onSelect }: ContextBarProps) {
   return (
-    <div className="context-bar">
+    <div className="hud-tabs">
       {CONTEXTS.map(({ key, label, icon }) => (
         <button
           key={key}
-          className={`context-btn ${selected === key ? 'active' : ''}`}
+          className={`hud-tab ${selected === key ? 'hud-tab--active' : ''}`}
           onClick={() => onSelect(key)}
         >
-          <span className="context-icon">{icon}</span>
-          <span className="context-label">{label}</span>
-          <span className="context-count">{counts[key] || 0}</span>
+          {icon} {label}
+          <span className="hud-tab__count">{counts[key] || 0}</span>
         </button>
       ))}
     </div>

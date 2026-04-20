@@ -28,28 +28,20 @@ export default function LoginGate({ children }: LoginGateProps) {
   }, []);
 
   if (loading) {
-    return (
-      <div className="login-overlay">
-        <div className="login-box">
-          <h1 className="login-title">KRKN HUD</h1>
-          <p>Loading...</p>
-        </div>
-      </div>
-    );
+    return <div className="hud-loading">Loading...</div>;
   }
 
   if (!user) {
     return (
-      <div className="login-overlay">
-        <div className="login-box">
-          <h1 className="login-title">KRKN HUD</h1>
-          <button
-            className="btn-login"
-            onClick={() => (window as any).netlifyIdentity.open()}
-          >
-            Log In
-          </button>
-        </div>
+      <div className="hud-login-overlay">
+        <div className="hud-login-title">KRKN HUD</div>
+        <div className="hud-login-subtitle">Personal Command Center</div>
+        <button
+          className="hud-btn hud-btn--primary hud-btn--lg"
+          onClick={() => (window as any).netlifyIdentity.open()}
+        >
+          Log In
+        </button>
       </div>
     );
   }
