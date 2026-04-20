@@ -27,7 +27,7 @@ const posts = (await getCollection('briefing')).sort(
             date={post.data.date}
             excerpt={post.data.excerpt}
             image={post.data.image}
-            slug={post.slug}
+            slug={post.id}
             section="briefing"
             sectionLabel="The Kraken Briefing"
           />

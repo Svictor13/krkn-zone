@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import HUD from '../../layouts/HUD.astro';
+import HUDApp from '../../components/hud/HUDApp';
+---
+
+<HUD title="KRKN HUD">
+  <HUDApp client:only="react" />
+</HUD>

@@ -27,7 +27,7 @@ const posts = (await getCollection('field-notes')).sort(
             date={post.data.date}
             excerpt={post.data.excerpt}
             image={post.data.image}
-            slug={post.slug}
+            slug={post.id}
             section="field-notes"
             sectionLabel="Field Notes"
           />
