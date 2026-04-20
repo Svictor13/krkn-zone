@@ -58,5 +58,17 @@ const ogImage = image ? new URL(image, siteUrl) : null;
   <footer class="site-footer">
     <p>✒️ <a href="https://www.linkedin.com/in/stefanwieczorek/" target="_blank" rel="noopener">Stefan Wieczorek</a> &nbsp;·&nbsp; KRKN &nbsp;·&nbsp; 26 years, 8 countries</p>
   </footer>
+  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script is:inline>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/hud";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
