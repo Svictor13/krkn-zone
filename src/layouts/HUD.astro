@@ -1,5 +1,12 @@
 ---
 // HUD Dashboard Layout — Standalone app shell
+import '../styles/hud.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'KRKN HUD' } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,12 +22,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <title>KRKN HUD</title>
+    <title>{title}</title>
     <style>
       /* Critical inline styles to prevent FOUC */
-      html, body { background: #0a0a0f; }
+      html, body { background: #0a0a0f; color: #e8e8f0; }
     </style>
-    <link rel="stylesheet" href="/src/styles/hud.css" />
   </head>
   <body class="hud-body">
     <div class="hud-brand">KRKN HUD</div>

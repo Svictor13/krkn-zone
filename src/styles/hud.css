@@ -787,6 +787,231 @@
   animation: hud-fade-in 0.3s ease forwards;
 }
 
+/* --- Dashboard Layout --- */
+.hud-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding-bottom: 80px; /* space for FAB */
+  animation: hud-fade-in 0.4s ease forwards;
+}
+
+/* --- Floating Action Button --- */
+.hud-fab {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--hud-cyan);
+  background: var(--hud-bg-card);
+  color: var(--hud-cyan);
+  font-size: 28px;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--hud-cyan-glow-strong);
+  transition: all var(--transition);
+  z-index: 100;
+}
+
+.hud-fab:hover {
+  background: var(--hud-cyan);
+  color: var(--hud-bg);
+  transform: scale(1.1);
+}
+
+.hud-fab:active {
+  transform: scale(0.95);
+}
+
+/* --- Empty State --- */
+.hud-empty {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  color: var(--hud-text-dim);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* --- Login Overlay --- */
+.hud-login-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--hud-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 50000;
+}
+
+.hud-login-title {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--hud-cyan);
+  text-shadow: var(--hud-cyan-glow);
+  margin-bottom: var(--space-xl);
+}
+
+.hud-login-subtitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--hud-text-dim);
+  margin-bottom: var(--space-xl);
+}
+
+/* --- Loading State --- */
+.hud-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--hud-text-dim);
+}
+
+/* --- Tab Count Badge --- */
+.hud-tab__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--hud-bg);
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.hud-tab--active .hud-tab__count {
+  background: var(--hud-cyan);
+  color: var(--hud-bg);
+}
+
+/* --- Form Field Groups --- */
+.hud-form-group {
+  margin-bottom: var(--space-md);
+}
+
+.hud-form-group label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--hud-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.hud-form-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+  margin-top: var(--space-lg);
+}
+
+/* --- Toggle Switch --- */
+.hud-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--hud-text);
+}
+
+.hud-toggle input[type="checkbox"] {
+  appearance: none;
+  width: 36px;
+  height: 20px;
+  background: var(--hud-bg);
+  border: 1px solid var(--hud-border);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.hud-toggle input[type="checkbox"]::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--hud-text-dim);
+  transition: all var(--transition);
+}
+
+.hud-toggle input[type="checkbox"]:checked {
+  background: var(--hud-cyan-dim);
+  border-color: var(--hud-cyan);
+}
+
+.hud-toggle input[type="checkbox"]:checked::after {
+  left: 18px;
+  background: var(--hud-cyan);
+  box-shadow: var(--hud-cyan-glow);
+}
+
+/* --- Task Delete Button --- */
+.hud-task__delete {
+  opacity: 0;
+  border: none;
+  background: transparent;
+  color: var(--hud-text-dim);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.hud-task:hover .hud-task__delete {
+  opacity: 1;
+}
+
+.hud-task__delete:hover {
+  color: var(--hud-red);
+  background: var(--hud-red-dim);
+}
+
+/* --- WIG Panel --- */
+.hud-wig-panel {
+  background: var(--hud-bg-card);
+  border: 1px solid var(--hud-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: inset 0 0 30px rgba(245, 158, 11, 0.02), var(--hud-amber-glow);
+}
+
+.hud-wig-panel__title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--hud-amber);
+  margin-bottom: var(--space-md);
+}
+
+.hud-wig-panel__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md) 0;
+}
+
 /* --- Responsive Fine-tuning --- */
 @media (max-width: 400px) {
   .hud-shell {
