@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import HUDFull from '../../layouts/HUDFull.astro';
+import TodayApp from '../../components/hud/today/TodayApp';
+---
+
+<HUDFull title="KRKN HUD — Today">
+  <TodayApp client:only="react" />
+</HUDFull>
