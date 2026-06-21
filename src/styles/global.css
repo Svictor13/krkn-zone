@@ -360,11 +360,25 @@ p:last-child {
   background: var(--bg-elev-2);
 }
 
+.post-card a {
+  position: relative;
+  display: block;
+}
+
+/* Vignette: melt light parchment edges into the dark card instead of a hard bright frame */
+.post-card a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 44px 10px rgba(10, 11, 13, 0.55);
+  pointer-events: none;
+}
+
 .post-card__image {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  filter: saturate(0.9);
+  filter: saturate(0.92) brightness(0.88);
 }
 
 .post-card__image--placeholder {
@@ -417,11 +431,36 @@ p:last-child {
 }
 
 /* === POST LAYOUT === */
+.post-anchor {
+  position: relative;
+  display: block;
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Vignette: ground the bright parchment plate against the near-black page */
+.post-anchor::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 70px 16px rgba(10, 11, 13, 0.55);
+  pointer-events: none;
+}
+
 .post-anchor-image {
   width: 100%;
   max-height: 480px;
   object-fit: cover;
-  border-radius: 14px;
+  display: block;
+  filter: saturate(0.92) brightness(0.9);
+}
+
+/* In-article images: warm hairline + tone-down so they read as mounted prints */
+.post-body img {
+  border-radius: 12px;
+  border: 1px solid rgba(196, 166, 126, 0.22);
+  filter: saturate(0.92) brightness(0.9);
 }
 
 .post-header {

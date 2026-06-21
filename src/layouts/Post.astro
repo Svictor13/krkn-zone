@@ -22,11 +22,13 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
 <Base title={title} description={excerpt} image={image}>
   {image && (
-    <img
-      src={image}
-      alt={title}
-      class="post-anchor-image"
-    />
+    <figure class="post-anchor">
+      <img
+        src={image}
+        alt={title}
+        class="post-anchor-image"
+      />
+    </figure>
   )}
 
   <div class="container">
