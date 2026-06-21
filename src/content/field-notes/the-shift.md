@@ -2,7 +2,7 @@
 title: "The Shift"
 date: 2026-06-16
 excerpt: "For most of my career, security has been people operating tools. That arrangement is about to invert — and most of the market hasn't priced it in."
-image: /images/krkn-human-vs-ai-anchor.jpg
+image: /images/krkn-the-shift-anchor.jpg
 tags: [CTEM, BlackHat, CISO, AI, machine-speed]
 ---
 

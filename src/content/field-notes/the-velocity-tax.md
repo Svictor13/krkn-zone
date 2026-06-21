@@ -2,7 +2,7 @@
 title: "The Velocity Tax"
 date: 2026-06-18
 excerpt: "Your engineers got faster this year. Quietly, all at once, your risk got faster with them — and the same-sized team is paying the verification tax by hand."
-image: /images/krkn-human-vs-ai-anchor.jpg
+image: /images/krkn-velocity-tax-anchor.jpg
 tags: [CTEM, AppSec, CISO, AI, velocity]
 ---
 
