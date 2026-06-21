@@ -356,7 +356,6 @@ p:last-child {
 }
 
 .post-card:hover {
-  transform: translateY(-3px);
   border-color: var(--hairline-strong);
   background: var(--bg-elev-2);
 }
@@ -538,6 +537,96 @@ p:last-child {
   margin-top: var(--space-lg);
 }
 
+/* === CENTERED HERO VARIANT === */
+.hero--center {
+  text-align: center;
+}
+
+.hero--center .hero__tagline {
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero--center .hero__sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero--center .hero__actions {
+  justify-content: center;
+}
+
+/* === WHAT KRKN COVERS — TOPIC GRID === */
+.cover-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  padding: var(--space-md) 0 var(--space-xl);
+}
+
+.cover-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  padding: var(--space-md);
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.cover-card:hover {
+  border-color: var(--hairline-strong);
+  background: var(--bg-elev-2);
+}
+
+.cover-card__cat {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: var(--space-sm);
+}
+
+.cover-card__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: var(--space-xs);
+}
+
+.cover-card__desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* === CLOSING CTA === */
+.closing-cta {
+  border-top: 1px solid var(--hairline);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+
+.closing-cta h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.closing-cta__text {
+  max-width: 52ch;
+  margin: 0 auto var(--space-md);
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+.closing-cta__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* === HOME ABOUT TEASER === */
 .about-teaser {
   padding: var(--space-lg) 0;
@@ -583,7 +672,17 @@ p:last-child {
 }
 
 /* === RESPONSIVE === */
+@media (max-width: 1000px) {
+  .cover-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 760px) {
+  .cover-grid {
+    grid-template-columns: 1fr;
+  }
+
   .site-nav {
     gap: var(--space-sm);
     padding: var(--space-sm);
