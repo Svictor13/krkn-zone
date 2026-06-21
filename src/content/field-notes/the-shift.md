@@ -19,5 +19,3 @@ It doesn't. Which is why the next era of this work looks strange to the people w
 THIS IS NOT A TOOLS RACE. IT IS A RACE OF SPEED.
 
 Risk is being created at machine speed now, in code that ships over a weekend and access that's granted in an afternoon. You cannot answer that with a quarterly review and one more analyst. In a few weeks at Black Hat I get to show what answering it at the same speed actually looks like. Not a slide. Something running.
-
-✒️♟️

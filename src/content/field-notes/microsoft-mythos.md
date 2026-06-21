@@ -41,5 +41,3 @@ The question Microsoft does not, and structurally cannot, answer.
 Because Microsoft is in the Microsoft business, not the FAIR business.
 
 That is the moat.
-
-✒️♟️

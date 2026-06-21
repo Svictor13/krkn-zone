@@ -21,5 +21,3 @@ There isn't. There hasn't been for a while.
 People assume my years make me faster at reading that board. They don't, and a junior with a good runbook out-clicks me most days. What the years actually left me is narrower and stranger: I know when that 3am archive is a backup job on one server, and when the very same pattern on another is the customer database walking out through a vendor's tunnel. We have been spending that kind of judgment, the rare and expensive kind, on clicking through screens a machine should have read before anyone woke up.
 
 The corkboard was never the problem. The problem is that we keep hiring people to stand in front of it, string in hand, long after the room has emptied and the attacker has driven home.
-
-✒️♟️

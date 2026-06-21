@@ -27,5 +27,3 @@ The quiet part, said out loud: your AI vendors will get hacked. Are you ready?
 If your TPRM program still grades vendors on a 12-month-old SIG questionnaire, you're not measuring the AI surface. You're measuring last year's surface.
 
 Don't get hacked through a robot somebody else built.
-
-✒️♟️

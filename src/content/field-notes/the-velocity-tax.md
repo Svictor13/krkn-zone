@@ -19,5 +19,3 @@ THE EXPOSURE IS NO LONGER COMING ONLY FROM ATTACKERS. IT IS COMING FROM YOUR OWN
 We have seen this shape before, outside of security. The factory that speeds up the line but not the inspection. The lender that books loans faster than it can underwrite them. It rarely ends in a dramatic failure. It ends in a slow pile of things nobody had time to look at.
 
 Machine-speed creation, human-speed verification, and a gap between the two that widens every sprint. I have a strong opinion about how that gap closes, and I'll show it at Black Hat.
-
-✒️♟️

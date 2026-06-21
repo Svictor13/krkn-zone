@@ -33,5 +33,3 @@ Don't buy intelligence.
 Build a disciplined operator that uses it > and make it YOURS.
 
 Pipe by pipe. Weld by weld.
-
-✒️♟️
